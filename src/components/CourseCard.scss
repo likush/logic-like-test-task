@@ -1,18 +1,24 @@
-$border-radius: 12px;
-$course-image-height: 172px;
+@import "../utils/variables";
 
 .container {
+  flex-basis: calc(100% / 3 - $gap);
+  margin-left: $gap;
+  margin-bottom: $gap;
+  padding-bottom: $gap;
   border-radius: $border-radius;
-  border-width: 1px;
-  border-color: red;
+  box-shadow: 0 10px 13px -4px $shadow-color;
 }
 
-.courseImage {
+.img {
   height: $course-image-height;
-  background-color: red;
-  object-fit: cover;
+  width: 100%;
+  object-fit: contain;
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
+}
+
+.title {
+  padding: 12px 18px 18px
 }
 
 

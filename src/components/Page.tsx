@@ -1,19 +1,28 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import {useCoursesQuery} from '../services/contentApi';
-import Course from './Course';
+import Sidebar from './Sidebar';
+import CourseList from './CourseList';
+import './Page.scss';
+
 
 const Page = () => {
     const {isLoading, data, error} = useCoursesQuery();
 
-    const courses = useMemo(() => {
-        return data?.map(item => <Course key={item.id} {...item}/>)
-    }, [data, isLoading])
+    if (!data) {
+        return null
+    }
 
     return (
         <div>
-            {courses}
+            {isLoading ? 'loading...' :
+
+                <div className="content">
+                    <Sidebar/>
+
+                    <CourseList data={data}/>
+                </div>}
         </div>
-    );
-};
+    )
+}
 
 export default Page;

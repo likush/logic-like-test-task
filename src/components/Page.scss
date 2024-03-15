@@ -1,0 +1,9 @@
+@import "../utils/variables";
+
+.content {
+  display: flex;
+  flex-direction: row;
+  margin: $gap;
+}
+
+
