@@ -1,12 +1,14 @@
 import React, {useCallback, useMemo} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {selectTag, showAllTags} from '../slices/coursesSlice';
+import {selectTag} from '../slices/coursesSlice';
 import './Sidebar.scss';
-import {allCourses} from '../selectors/selectors';
+import {allCourses, selectedTag} from '../selectors/selectors';
+import {CourseTag} from '../types/types';
 
 const Sidebar = () => {
     const dispatch = useDispatch()
     const courses = useSelector(allCourses)
+    const selectedValue = useSelector(selectedTag)
 
     const tags = useMemo(() => {
         let result = new Map();
@@ -20,16 +22,19 @@ const Sidebar = () => {
         return Array.from(result.values());
     }, [courses])
 
-    const onAllTagsPress = useCallback(() => dispatch(showAllTags()), [dispatch])
-    const onTagPress = useCallback((tag: string) => dispatch(selectTag(tag)), [dispatch]);
+    const onTagPress = useCallback((tag: CourseTag) => dispatch(selectTag(tag)), [dispatch]);
+
+    const getTagClassnames = (value: CourseTag) => `tag ${value === selectedValue ? 'tag_selected' : ''}`
 
     return (
         <div className="sidebar">
-            <button onClick={onAllTagsPress} className="tag tag_selected">
+            <button onClick={() => onTagPress(null)} className={getTagClassnames(null)}>
                 Все темы
             </button>
             {tags.map((tag: string) =>
-                <button key={tag} onClick={() => onTagPress(tag)} className="tag">
+                <button onClick={() => onTagPress(tag)}
+                        className={getTagClassnames(tag)}
+                        key={tag}>
                     {tag}
                 </button>
             )}

@@ -1,9 +1,9 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {CourseType} from '../types/types';
+import {CourseTag, Course} from '../types/types';
 import {fetchCourses} from '../actions/content-actions-async';
 
 type State = {
-    courses: CourseType[];
+    courses: Course[];
     selectedTag: null | string;
     loading: boolean;
     error: boolean;
@@ -20,11 +20,10 @@ export const coursesSlice = createSlice({
     name: 'content',
     initialState,
     reducers: {
-        selectTag: (state, action: PayloadAction<string>) => {
-            state.selectedTag = action.payload;
-        },
-        showAllTags: (state) => {
-            state.selectedTag = null;
+        selectTag: (state, action: PayloadAction<CourseTag>) => {
+            if (state.selectedTag !== action.payload) {
+                return {...state, selectedTag: action.payload}
+            }
         },
     },
     extraReducers: (builder) => {
@@ -44,6 +43,6 @@ export const coursesSlice = createSlice({
     },
 })
 
-export const {selectTag, showAllTags} = coursesSlice.actions
+export const {selectTag} = coursesSlice.actions
 
 export const coursesReducer = coursesSlice.reducer

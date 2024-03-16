@@ -1,10 +1,10 @@
 import React, {useMemo} from 'react';
 import './CourseList.scss';
-import {CourseType} from '../types/types';
+import {Course} from '../types/types';
 import CourseCard from './CourseCard';
 
 type Props = {
-    data: CourseType[]
+    data: Course[]
 }
 
 const CourseList = (props: Props) => {
@@ -15,7 +15,7 @@ const CourseList = (props: Props) => {
     }, [data])
 
     return (
-        <div className="coursesList">
+        <div className="courses-list">
             {courses}
         </div>
     );

@@ -1,16 +1,16 @@
 import {createSelector} from '@reduxjs/toolkit';
-import {CourseType, RootState} from '../types/types';
+import {Course, RootState} from '../types/types';
 
 export const selectedTag = (state: RootState) => state.courses.selectedTag;
 export const allCourses = (state: RootState) => state.courses.courses;
 export const coursesStatus = (state: RootState) => state.courses.loading;
 
-export const selectedTags = createSelector(
+export const selectedCourses = createSelector(
     selectedTag,
     allCourses,
     (selectedTag, courses) => {
         if (!selectedTag) return courses;
 
-        return courses.filter((course: CourseType) => course.tags.includes(selectedTag));
+        return courses.filter((course: Course) => course.tags.includes(selectedTag));
     },
 )

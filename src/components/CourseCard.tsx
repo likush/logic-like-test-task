@@ -1,14 +1,14 @@
 import React, {useMemo} from 'react';
 import './CourseCard.scss';
-import {CourseType} from '../types/types';
+import {Course} from '../types/types';
 
-const CourseCard = (props: CourseType) => {
+const CourseCard = (props: Course) => {
     const {name, bgColor, image} = props
 
     const backgroundColor = useMemo(() => ({backgroundColor: bgColor}), [bgColor])
 
     return (
-        <div className='container'>
+        <div className='course'>
             <img
                 style={backgroundColor}
                 className='img'
