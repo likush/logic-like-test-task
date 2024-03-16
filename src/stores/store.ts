@@ -1,14 +1,12 @@
 import {configureStore} from '@reduxjs/toolkit';
-import {contentApi} from '../services/contentApi';
 import filterReducer from '../features/filterSlice'
+import {contentReducer} from '../features/contentSlice';
 
 const store = configureStore({
     reducer: {
         filter: filterReducer,
-        [contentApi.reducerPath]: contentApi.reducer,
+        content: contentReducer,
     },
-    middleware: getDefaultMiddleware =>
-        getDefaultMiddleware().concat(contentApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

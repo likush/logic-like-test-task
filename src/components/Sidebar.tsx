@@ -1,7 +1,7 @@
 import React, {useCallback, useMemo} from 'react';
-import {useDispatch, useSelector } from 'react-redux';
-import {selectTag, showAllTags } from '../features/filterSlice';
-import { RootState } from '../types';
+import {useDispatch, useSelector} from 'react-redux';
+import {selectTag, showAllTags} from '../features/filterSlice';
+import {RootState} from '../types';
 import './Sidebar.scss';
 
 type Props = {
@@ -12,15 +12,15 @@ type Props = {
 const Sidebar = (props: Props) => {
     const {data} = props;
 
-    const selected = useSelector((state: RootState) => state.filter.selectedTag)
+    const selected = useSelector((state: RootState) => console.log(state))
     const dispatch = useDispatch()
 
-    const onAllTagsPress = useCallback(() => dispatch(showAllTags()), [selected])
-    const onTagPress = useCallback((tag: string) => dispatch(selectTag(tag)), []);
+    const onAllTagsPress = useCallback(() => dispatch(showAllTags()), [dispatch])
+    const onTagPress = useCallback((tag: string) => dispatch(selectTag(tag)), [dispatch]);
 
     return (
         <div className="sidebar">
-            <button onClick={onAllTagsPress} className="tag tag_selected" >
+            <button onClick={onAllTagsPress} className="tag tag_selected">
                 Все темы
             </button>
             {data.map((tag: string) =>
