@@ -4,7 +4,6 @@ import Sidebar from './Sidebar';
 import CourseList from './CourseList';
 import './Page.scss';
 
-
 const Page = () => {
     const {isLoading, data} = useCoursesQuery();
 
