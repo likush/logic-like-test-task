@@ -1,9 +1,9 @@
 import {createSelector} from '@reduxjs/toolkit';
-import {RootState} from '../types';
+import {CourseType, RootState} from '../types/types';
 
-export const selectedTag = (state: RootState) => state.filter.selectedTag;
-export const allCourses = (state: RootState) => state.content.content;
-export const coursesStatus = (state: RootState) => state.content.loading;
+export const selectedTag = (state: RootState) => state.courses.selectedTag;
+export const allCourses = (state: RootState) => state.courses.courses;
+export const coursesStatus = (state: RootState) => state.courses.loading;
 
 export const selectedTags = createSelector(
     selectedTag,
@@ -11,6 +11,6 @@ export const selectedTags = createSelector(
     (selectedTag, courses) => {
         if (!selectedTag) return courses;
 
-        return courses.filter(course => course.tags.includes(selectedTag));
+        return courses.filter((course: CourseType) => course.tags.includes(selectedTag));
     },
 )

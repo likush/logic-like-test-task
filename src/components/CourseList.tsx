@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import './CourseList.scss';
-import {CourseType} from '../types';
+import {CourseType} from '../types/types';
 import CourseCard from './CourseCard';
 
 type Props = {

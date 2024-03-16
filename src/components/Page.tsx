@@ -3,9 +3,9 @@ import Sidebar from './Sidebar';
 import CourseList from './CourseList';
 import './Page.scss';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchCourses} from '../features/contentSlice';
 import {coursesStatus, selectedTags} from '../selectors/selectors';
-import {AppDispatch} from '../types';
+import {AppDispatch} from '../types/types';
+import {fetchCourses} from '../actions/content-actions-async';
 
 const Page = () => {
     const dispatch = useDispatch<AppDispatch>();

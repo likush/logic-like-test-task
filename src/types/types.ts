@@ -1,4 +1,4 @@
-import store from './stores/store';
+import store from '../stores/store';
 
 export type CourseType = {
     bgColor: string;
@@ -8,10 +8,6 @@ export type CourseType = {
     tags: string[];
 }
 
-// redux
-export type CounterState = {
-    selectedTag: string | null;
-}
 
 export type RootState = ReturnType<typeof store.getState>
 

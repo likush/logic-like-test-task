@@ -1,11 +1,9 @@
 import {configureStore} from '@reduxjs/toolkit';
-import filterReducer from '../features/filterSlice'
-import {contentReducer} from '../features/contentSlice';
+import {coursesReducer} from '../slices/coursesSlice';
 
 const store = configureStore({
     reducer: {
-        filter: filterReducer,
-        content: contentReducer,
+        courses: coursesReducer,
     },
 });
 

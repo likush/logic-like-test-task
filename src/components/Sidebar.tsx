@@ -1,6 +1,6 @@
 import React, {useCallback, useMemo} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {selectTag, showAllTags} from '../features/filterSlice';
+import {selectTag, showAllTags} from '../slices/coursesSlice';
 import './Sidebar.scss';
 import {allCourses} from '../selectors/selectors';
 
