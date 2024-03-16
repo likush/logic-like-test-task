@@ -1,0 +1,25 @@
+@import "../utils/variables";
+
+.sidebar {
+  min-width: $sidebar-width;
+  height: fit-content;
+  border-radius: $border-radius;
+  border: $border-width solid  $border-color;
+  padding: $base-padding;
+}
+
+.tag {
+  display: block;
+  width: 100%;
+  padding: $base-padding;
+  background-color: transparent;
+  border-radius: $border-radius;
+  transition: opacity .9s, margin-left .5s, margin-right .5s;
+  -webkit-transition: opacity .9s, margin-left .5s, margin-right .5s;
+
+  &:hover {
+    background-color: rgba($green, 0.3);
+  }
+}
+
+
