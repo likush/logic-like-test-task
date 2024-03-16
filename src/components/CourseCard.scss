@@ -1,0 +1,33 @@
+@import "../utils/variables";
+
+.course {
+  flex: 1;
+  min-width: calc(33.3% - $gap-m);
+  max-width: calc(33.3% - $gap-m);
+  padding-bottom: $gap-s;
+  border-radius: $border-radius-m;
+  box-shadow: 0 10px 13px -4px rgba($shadow-color, $shadow-opacity);
+  cursor: pointer;
+  background-color: $white;
+  transition: all 0.5s;
+
+
+  &:hover {
+    box-shadow: 0 10px 13px -4px rgba($shadow-color, $shadow-opacity-hover);
+    transform: scale(1.1);
+  }
+}
+
+.img {
+  height: $course-image-height;
+  width: 100%;
+  object-fit: contain;
+  border-top-left-radius: $border-radius-m;
+  border-top-right-radius: $border-radius-m;
+}
+
+.title {
+  padding: $padding-s $padding-m $padding-m;
+}
+
+

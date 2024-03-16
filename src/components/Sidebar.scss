@@ -1,0 +1,37 @@
+@import "../utils/variables";
+
+.sidebar {
+  min-width: $sidebar-width;
+  box-sizing: border-box;
+  height: fit-content;
+  border-radius: $border-radius-m;
+  border: $border-width solid  $border-color;
+  padding: $padding-s;
+  margin-right: $gap-l;
+}
+
+.tag {
+  display: block;
+  width: 100%;
+  padding: $padding-s;
+  background-color: transparent;
+  border-radius: $border-radius-s;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: rgba($green, 0.3);
+  }
+}
+
+.tag_selected {
+  background-color: $green;
+  color: $white;
+
+  &:hover {
+    background-color: $green;
+    text-decoration: underline;
+  }
+}
+
+
