@@ -9,6 +9,8 @@ export const selectedTags = createSelector(
     selectedTag,
     allCourses,
     (selectedTag, courses) => {
-        // todo: logic
+        if (!selectedTag) return courses;
+
+        return courses.filter(course => course.tags.includes(selectedTag));
     },
 )

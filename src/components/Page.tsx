@@ -1,31 +1,18 @@
-import React, {useEffect, useMemo} from 'react';
+import React, {useEffect} from 'react';
 import Sidebar from './Sidebar';
 import CourseList from './CourseList';
 import './Page.scss';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchCourses} from '../features/contentSlice';
-import {allCourses, coursesStatus} from '../selectors/selectors';
+import {coursesStatus, selectedTags} from '../selectors/selectors';
+import {AppDispatch} from '../types';
 
 const Page = () => {
-    const dispatch = useDispatch();
-    const courses = useSelector(allCourses)
+    const dispatch = useDispatch<AppDispatch>();
+    const courses = useSelector(selectedTags);
     const isLoading = useSelector(coursesStatus)
 
-    useEffect(() => {
-        dispatch(fetchCourses())
-    }, [dispatch])
-
-    const tagValues = useMemo(() => {
-        let result = new Map();
-
-        courses?.forEach(({tags}: {tags: string[]}) => {
-            for (let i = 0; i < tags.length; i++) {
-                result.set(tags[i], tags[i])
-            }
-        })
-
-        return Array.from(result.values());
-    }, [courses])
+    useEffect(() => {dispatch(fetchCourses())}, [dispatch])
 
     if (!courses) {
         return null
@@ -34,9 +21,8 @@ const Page = () => {
     return (
         <div>
             {isLoading ? 'loading...' :
-
                 <div className="content">
-                    <Sidebar data={tagValues}/>
+                    <Sidebar/>
 
                     <CourseList data={courses}/>
                 </div>}

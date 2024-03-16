@@ -3,7 +3,7 @@ import './CourseCard.scss';
 import {CourseType} from '../types';
 
 const CourseCard = (props: CourseType) => {
-    const {name, id, bgColor, image} = props
+    const {name, bgColor, image} = props
 
     const backgroundColor = useMemo(() => ({backgroundColor: bgColor}), [bgColor])
 
