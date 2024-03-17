@@ -1,0 +1,8 @@
+@import "../utils/mixins";
+
+.error {
+  @include absolute-centered;
+
+  max-width: 250px;
+  text-align: center;
+}
