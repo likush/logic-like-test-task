@@ -1,8 +1,8 @@
-import React, {useMemo} from 'react';
+import React, {ReactElement, useMemo} from 'react';
 import './CourseCard.scss';
 import {Course} from '../types/types';
 
-const CourseCard = (props: Course) => {
+const CourseCard: React.FC<Course> = (props): ReactElement => {
     const {name, bgColor, image} = props
 
     const backgroundColor = useMemo(() => ({backgroundColor: bgColor}), [bgColor])

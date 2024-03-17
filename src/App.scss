@@ -1,0 +1,15 @@
+@import "utils/variables";
+
+.content {
+  display: flex;
+  flex-direction: row;
+  gap: $gap-l;
+  padding: $gap-l;
+}
+
+@media (max-width: 600px) {
+  .content  {
+    flex-direction: column;
+  }
+}
+

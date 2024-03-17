@@ -7,11 +7,5 @@
   width: 100%;
   height: fit-content;
   gap: $gap-m;
-  row-gap: $gap-m;
-}
-
-.courses-list::after {
-  content: "";
-  flex: auto;
 }
 

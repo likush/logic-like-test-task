@@ -1,11 +1,11 @@
-import React, {useCallback, useMemo} from 'react';
+import React, {ReactElement, useCallback, useMemo} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectTag} from '../slices/coursesSlice';
 import './Sidebar.scss';
 import {allCourses, selectedTag} from '../selectors/selectors';
 import {CourseTag} from '../types/types';
 
-const Sidebar = () => {
+const Sidebar: React.FC<{}> = (): ReactElement => {
     const dispatch = useDispatch()
     const courses = useSelector(allCourses)
     const selectedValue = useSelector(selectedTag)
@@ -27,7 +27,7 @@ const Sidebar = () => {
     const getTagClassnames = (value: CourseTag) => `tag ${value === selectedValue ? 'tag_selected' : ''}`
 
     return (
-        <div className="sidebar">
+        <aside className="sidebar">
             <button onClick={() => onTagPress(null)} className={getTagClassnames(null)}>
                 Все темы
             </button>
@@ -38,7 +38,7 @@ const Sidebar = () => {
                     {tag}
                 </button>
             )}
-        </div>
+        </aside>
     );
 };
 
