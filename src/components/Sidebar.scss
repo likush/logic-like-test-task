@@ -9,8 +9,8 @@
   padding: $padding-s;
 }
 
-// decided to make like this, because fixed width look ugly on the small screens :)
-@media (max-width: 600px) {
+// decided to make like this, because fixed width looks ugly on the small screens :)
+@media (max-width: 650px) {
   .sidebar {
     min-width: auto;
   }

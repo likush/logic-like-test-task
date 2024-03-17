@@ -1,9 +1,14 @@
 @import "../utils/variables";
 
-$gaps-count: $courses-per-row - 1;
+$courses-per-row-l: 3;
+$courses-per-row-m: 2;
+
+@function gaps-count($per-row) {
+  @return $per-row - 1;
+}
 
 .course {
-  flex-basis: calc(100% / $courses-per-row - ($gap-m * $gaps-count / $courses-per-row));
+  flex-basis: calc((100% - ($gap-m * gaps-count($courses-per-row-l))) / $courses-per-row-l);
   flex-grow: 1;
   padding-bottom: $gap-s;
   border-radius: $border-radius-m;
@@ -18,14 +23,14 @@ $gaps-count: $courses-per-row - 1;
   }
 }
 
-// decided to make like this, because 3 cards per row look ugly on the small screens :)
-@media (max-width: 800px) {
+// decided to make like this, because 3 cards per row looks ugly on the small screens :)
+@media (max-width: 850px) {
   .course {
-    flex-basis: calc(100% / 2 - ($gap-m * $gaps-count / $courses-per-row));
+    flex-basis: calc((100% - ($gap-m * gaps-count($courses-per-row-m))) / $courses-per-row-m);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .course {
     flex-basis: 100%;
   }
