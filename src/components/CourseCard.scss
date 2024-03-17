@@ -9,7 +9,6 @@ $courses-per-row-m: 2;
 
 .course {
   flex-basis: calc((100% - ($gap-m * gaps-count($courses-per-row-l))) / $courses-per-row-l);
-  flex-grow: 1;
   padding-bottom: $gap-s;
   border-radius: $border-radius-m;
   box-shadow: 0 10px 13px -4px rgba($shadow-color, $shadow-opacity);
