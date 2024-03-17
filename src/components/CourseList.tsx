@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {ReactElement, useMemo} from 'react';
 import './CourseList.scss';
 import {Course} from '../types/types';
 import CourseCard from './CourseCard';
@@ -7,7 +7,7 @@ type Props = {
     data: Course[]
 }
 
-const CourseList = (props: Props) => {
+const CourseList: React.FC<Props> = (props): ReactElement => {
     const {data} = props;
 
     const courses = useMemo(() => {

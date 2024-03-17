@@ -1,11 +1,11 @@
-import React, {useCallback, useMemo} from 'react';
+import React, {ReactElement, useCallback, useMemo} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectTag} from '../slices/coursesSlice';
 import './Sidebar.scss';
 import {allCourses, selectedTag} from '../selectors/selectors';
 import {CourseTag} from '../types/types';
 
-const Sidebar = () => {
+const Sidebar: React.FC<{}> = (): ReactElement => {
     const dispatch = useDispatch()
     const courses = useSelector(allCourses)
     const selectedValue = useSelector(selectedTag)

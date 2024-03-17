@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {ReactElement, useEffect} from 'react';
 import Sidebar from './Sidebar';
 import CourseList from './CourseList';
 import './Page.scss';
@@ -9,7 +9,7 @@ import {fetchCourses} from '../actions/content-actions-async';
 import Loader from './Loader';
 import ErrorMessage from './ErrorMessage';
 
-const Page = () => {
+const Page: React.FC<{}> = (): ReactElement | null => {
     const dispatch = useDispatch<AppDispatch>();
     const courses = useSelector(selectedCourses);
     const isLoading = useSelector(coursesStatus)

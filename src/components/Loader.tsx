@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 import './Loader.scss';
 
 const LOADER_ITEMS = 12;
 
-const Loader = () => {
+const Loader: React.FC<{}> = (): ReactElement => {
 
     const loaderItems = Array(LOADER_ITEMS).fill(null);
 
