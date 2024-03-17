@@ -7,7 +7,13 @@
   border-radius: $border-radius-m;
   border: $border-width solid  $border-color;
   padding: $padding-s;
-  margin-right: $gap-l;
+}
+
+// decided to make like this, because fixed width look ugly on the small screens :)
+@media (max-width: 600px) {
+  .sidebar {
+    min-width: auto;
+  }
 }
 
 .tag {

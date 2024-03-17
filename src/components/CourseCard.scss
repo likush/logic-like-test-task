@@ -1,9 +1,10 @@
 @import "../utils/variables";
 
+$gaps-count: $courses-per-row - 1;
+
 .course {
-  flex: 1;
-  min-width: calc(33.3% - $gap-m);
-  max-width: calc(33.3% - $gap-m);
+  flex-basis: calc(100% / $courses-per-row - ($gap-m * $gaps-count / $courses-per-row));
+  flex-grow: 1;
   padding-bottom: $gap-s;
   border-radius: $border-radius-m;
   box-shadow: 0 10px 13px -4px rgba($shadow-color, $shadow-opacity);
@@ -11,10 +12,22 @@
   background-color: $white;
   transition: all 0.5s;
 
-
   &:hover {
     box-shadow: 0 10px 13px -4px rgba($shadow-color, $shadow-opacity-hover);
-    transform: scale(1.1);
+    transform: scale(1.05);
+  }
+}
+
+// decided to make like this, because 3 cards per row look ugly on the small screens :)
+@media (max-width: 800px) {
+  .course {
+    flex-basis: calc(100% / 2 - ($gap-m * $gaps-count / $courses-per-row));
+  }
+}
+
+@media (max-width: 600px) {
+  .course {
+    flex-basis: 100%;
   }
 }
 

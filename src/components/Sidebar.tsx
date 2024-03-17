@@ -27,7 +27,7 @@ const Sidebar = () => {
     const getTagClassnames = (value: CourseTag) => `tag ${value === selectedValue ? 'tag_selected' : ''}`
 
     return (
-        <div className="sidebar">
+        <aside className="sidebar">
             <button onClick={() => onTagPress(null)} className={getTagClassnames(null)}>
                 Все темы
             </button>
@@ -38,7 +38,7 @@ const Sidebar = () => {
                     {tag}
                 </button>
             )}
-        </div>
+        </aside>
     );
 };
 
